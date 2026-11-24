@@ -1,4 +1,4 @@
-
+school-backup.db*
 node_modules/
 server/data/
 .env

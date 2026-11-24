@@ -2,7 +2,7 @@
 import React,{useEffect,useMemo,useState} from 'react';
 import {GraduationCap,LayoutDashboard,Users,BookOpen,ClipboardList,LogOut,Menu,X,Search,Plus,CheckCircle2,Clock3,AlertCircle,ArrowUpRight,School,BookMarked,UserRound,ChevronRight,RefreshCw,Trash2,ShieldCheck,CalendarDays} from 'lucide-react';
 
-const API='http://localhost:5000/api';
+const API=import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
 async function request(path,token,options={}) {
  const res=await fetch(API+path,{...options,headers:{'Content-Type':'application/json',...(token?{Authorization:`Bearer ${token}`}:{}) ,...(options.headers||{})}});
  const data=await res.json().catch(()=>({}));
