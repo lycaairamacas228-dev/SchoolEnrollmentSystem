@@ -6,7 +6,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
-const dataDir = path.join(here, '..', 'data');
+const dataDir = process.env.DATA_DIR || path.join(here, '..', 'data');
 fs.mkdirSync(dataDir, { recursive: true });
 const db = new Database(path.join(dataDir, 'school.db'));
 db.pragma('journal_mode = WAL');
